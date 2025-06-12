@@ -14,6 +14,7 @@ public class CanchaController : MonoBehaviour{
     Rigidbody2D rb_jugador;
     Rigidbody2D rb_bola;
 
+    [SerializeField] private float desaceleracion = 5f;
     private float drag_original;
     private Vector3 posicion_original;
     private bool ya_gano = false;
@@ -41,9 +42,7 @@ public class CanchaController : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other){
         if (other.tag == "Bola"){
-            OnScore?.Invoke(1);
-
-            //StartCoroutine(Anotar());
+            StartCoroutine(Anotar());
 
         }
 
@@ -60,22 +59,21 @@ public class CanchaController : MonoBehaviour{
     }
     
     IEnumerator Anotar(){
+        //Al anotar
         game_manager.PararContador(true);
-
-        //Desacelerar la bola
-        rb_bola.drag = 5f;
+        rb_bola.drag = desaceleracion; //Desacelerar la bola
+        OnScore?.Invoke(1);
 
         if (game_manager.ganar == true){
             StartCoroutine(Ganar());
-
             yield break;
         
         }
 
         yield return new WaitForSeconds(2f);
 
+        //Despues de anotar
         game_manager.PararContador(false);
-
         ReiniciarAtributos();
 
     }
