@@ -8,14 +8,25 @@ public class ScoreController : MonoBehaviour{
     [SerializeField] TextMeshProUGUI texto_puntaje;
     private int puntaje = 0;
     private int puntaje_actual;
-    [SerializeField] public int puntaje_ganar;
+    [SerializeField] int puntaje_ganar;
 
     private void Start(){
         texto_puntaje.text = "Puntaje: " + puntaje;
 
     }
 
-    public void SumarPuntaje(int cantidad){
+    private void OnEnable(){
+        CanchaController.OnScore += SumarPuntaje;
+
+    }
+
+    private void OnDisable()
+    {
+        CanchaController.OnScore -= SumarPuntaje;
+
+    }
+
+    private void SumarPuntaje(int cantidad){
         puntaje_actual += cantidad;
         texto_puntaje.text = "Puntaje: " + puntaje;
 
@@ -26,9 +37,6 @@ public class ScoreController : MonoBehaviour{
 
         */
 
-        }
-
     }
-
 
 }

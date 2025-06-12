@@ -12,6 +12,9 @@ public class OtrasCosas : MonoBehaviour{
     [SerializeField] ParticleSystem particulas;
     private ParticleSystem instancia_particulas;
 
+    SpriteRenderer sr;
+    AudioSource aud;
+
     private Sprite sprite_original;
 
     sprite_original = sr.sprite;

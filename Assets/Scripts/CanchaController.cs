@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,19 @@ using DG.Tweening;
 using TMPro;
 
 public class CanchaController : MonoBehaviour{
-    [SerializeField] GameObject bola;
     [SerializeField] GameObject jugador;
+    [SerializeField] GameObject bola;
     [SerializeField] GameManager game_manager;
-    
-    SpriteRenderer sr;
-    AudioSource aud;
-    Rigidbody2D rb_bola;
-    Rigidbody2D rb_jugador;
-
     [SerializeField] TextMeshProUGUI texto_ganador;
+
+    Rigidbody2D rb_jugador;
+    Rigidbody2D rb_bola;
 
     private float drag_original;
     private Vector3 posicion_original;
     private bool ya_gano = false;
 
+    public static event Action<int> OnScore;
 
     private void Start(){
         rb_bola = bola.GetComponent <Rigidbody2D>();
@@ -42,8 +41,9 @@ public class CanchaController : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other){
         if (other.tag == "Bola"){
+            OnScore?.Invoke(1);
 
-            StartCoroutine(Anotar());
+            //StartCoroutine(Anotar());
 
         }
 
@@ -53,9 +53,6 @@ public class CanchaController : MonoBehaviour{
         game_manager.PararContador(true);
 
         rb_bola.drag = 5f;
-
-        game_manager.SumarPuntaje(1);
-        texto_puntaje.text = "Puntaje: " + puntaje;
 
         if (game_manager.ganar == true){
             StartCoroutine(Ganar());
