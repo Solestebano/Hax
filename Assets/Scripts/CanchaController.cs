@@ -27,17 +27,17 @@ public class CanchaController : MonoBehaviour{
         drag_original = rb_bola.drag;
         posicion_original = jugador.transform.position;
 
-
     }
 
-    private void Update()
-    {
-        if (game_manager.ganar && !ya_gano)
-        {
+    /*
+    private void Update(){
+        if (game_manager.ganar && !ya_gano){
             ya_gano = true;
             StartCoroutine(Ganar());
+
         }
     }
+    */
 
     void OnTriggerEnter2D(Collider2D other){
         if (other.tag == "Bola"){
@@ -48,10 +48,21 @@ public class CanchaController : MonoBehaviour{
         }
 
     }
+
+    private void ReiniciarAtributos(){
+        bola.transform.position = Vector3.zero;
+        rb_bola.drag = drag_original;
+        rb_bola.velocity = Vector2.zero;
+
+        jugador.transform.position = posicion_original;
+        rb_jugador.velocity = Vector2.zero;
+
+    }
     
     IEnumerator Anotar(){
         game_manager.PararContador(true);
 
+        //Desacelerar la bola
         rb_bola.drag = 5f;
 
         if (game_manager.ganar == true){
@@ -65,12 +76,7 @@ public class CanchaController : MonoBehaviour{
 
         game_manager.PararContador(false);
 
-        bola.transform.position = Vector3.zero;
-        rb_bola.drag = drag_original;
-        rb_bola.velocity = Vector2.zero;
-
-        jugador.transform.position = posicion_original;
-        rb_jugador.velocity = Vector2.zero;
+        ReiniciarAtributos();
 
     }
 
