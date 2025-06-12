@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour{
 
-    [SerializeField] public int puntaje_ganar;
-    private int puntaje_actual;
-    public bool ganar = false;
-
     [SerializeField] TMP_Text texto_contador;
     [SerializeField] float duracion;
     [SerializeField] float duracion_interpolacion;
@@ -19,6 +15,7 @@ public class GameManager : MonoBehaviour{
     private bool empezo_animacion = false;
     private bool primer_movimiento = false;
     private bool esta_pausado = false;
+    public bool ganar = false;
 
 
     private void Awake(){
@@ -29,7 +26,6 @@ public class GameManager : MonoBehaviour{
 
     private void Update(){
         //Condicion para ganar
-
         if (duracion_actual == 0 && !ganar){
             ganar = true;
 
@@ -58,18 +54,6 @@ public class GameManager : MonoBehaviour{
         //Actualizacion del contador
         TimeSpan tiempo = TimeSpan.FromSeconds(duracion_actual);
         texto_contador.text = tiempo.ToString(@"mm\:ss");
-
-    }
-    public void SumarPuntaje(int cantidad)
-    {
-        puntaje_actual += cantidad;
-
-        if (puntaje_actual == puntaje_ganar && !ganar)
-        {
-            Debug.Log("Ganaste");
-            ganar = true;
-
-        }
 
     }
 
