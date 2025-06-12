@@ -14,12 +14,10 @@ public class CanchaController : MonoBehaviour{
     Rigidbody2D rb_bola;
     Rigidbody2D rb_jugador;
 
-    [SerializeField] TextMeshProUGUI texto_puntaje;
     [SerializeField] TextMeshProUGUI texto_ganador;
 
     private float drag_original;
     private Vector3 posicion_original;
-    private int puntaje;
     private bool ya_gano = false;
 
 
@@ -30,8 +28,6 @@ public class CanchaController : MonoBehaviour{
         drag_original = rb_bola.drag;
         posicion_original = jugador.transform.position;
 
-        puntaje = 0;
-        texto_puntaje.text = "Puntaje: " + puntaje;
 
     }
 
@@ -58,7 +54,6 @@ public class CanchaController : MonoBehaviour{
 
         rb_bola.drag = 5f;
 
-        puntaje += 1;
         game_manager.SumarPuntaje(1);
         texto_puntaje.text = "Puntaje: " + puntaje;
 
