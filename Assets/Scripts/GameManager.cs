@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour{
+    #region Variables
+
     [SerializeField] GameObject jugador;
     [SerializeField] GameObject bola;
     [SerializeField] TextMeshProUGUI texto_ganador;
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour{
     private float drag_original;
     private Vector3 posicion_original;
     private bool ya_gano = false;
+
+    #endregion
 
     private void Awake(){
         Application.targetFrameRate = 60;

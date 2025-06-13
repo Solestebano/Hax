@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 
 public class TimerManager : MonoBehaviour{
+    #region Variables
 
     [SerializeField] TMP_Text texto_contador;
     [SerializeField] float duracion_contador;
@@ -15,6 +16,8 @@ public class TimerManager : MonoBehaviour{
     private bool esta_pausado = false;
     private bool primer_movimiento = false;
     public bool ganar = false;
+
+    #endregion
 
     private void Awake(){
         duracion_actual = duracion_contador;

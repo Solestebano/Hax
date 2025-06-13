@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour{
+    #region Variables
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer sr;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour{
     private Vector2 direccion_movimiento;
     private bool accion;
     private float velocidad_inicial;
+
+    #endregion
 
     private void Awake()
     {

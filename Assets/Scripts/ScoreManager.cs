@@ -5,12 +5,16 @@ using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour{
+    #region Variables
+
     [SerializeField] TextMeshProUGUI texto_puntaje;
     private int puntaje_inicial = 0;
     private int puntaje_actual;
     [SerializeField] int puntaje_ganar;
 
     public static event Action OnGanar;
+
+    #endregion
 
     private void Start(){
         texto_puntaje.text = "Puntaje: " + puntaje_inicial;
