@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviour{
 
     }
 
+    private void OnEnable(){
+        ScoreManager.
+
+    }
+
+    private void OnDisable(){
+        
+
+    }
+
     public void ReiniciarEscena(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 

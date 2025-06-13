@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 11495726}
   - component: {fileID: 11495725}
   m_Layer: 5
-  m_Name: Contador
+  m_Name: Puntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,6 +707,8 @@ GameObject:
   m_Component:
   - component: {fileID: 717250203}
   - component: {fileID: 717250202}
+  - component: {fileID: 717250205}
+  - component: {fileID: 717250204}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -726,11 +728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ff0fd56931e5845bb5c849a03c58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntaje_ganar: 5
-  ganar: 0
   texto_contador: {fileID: 1229805237}
   duracion: 180
   duracion_interpolacion: 1
+  ganar: 0
 --- !u!4 &717250203
 Transform:
   m_ObjectHideFlags: 0
@@ -746,6 +747,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717250204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717250201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9706cc161df2d4992d0e4b8ff6ff80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texto_contador: {fileID: 0}
+  duracion_contador: 0
+  duracion_interpolacion: 0
+--- !u!114 &717250205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717250201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0bf324f4eace14e95ca59e7e2bbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texto_puntaje: {fileID: 11495725}
+  puntaje_ganar: 5
 --- !u!1 &747880048
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,14 +807,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c9a6aa73b35d046b92253c43259161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bola: {fileID: 1276197501}
-  contador: {fileID: 2007127506}
   jugador: {fileID: 1106567358}
-  game_manager: {fileID: 717250202}
-  sprite: {fileID: 21300000, guid: 60048d67e8b4e664fbad9a6f411f6190, type: 3}
-  texto_puntaje: {fileID: 11495725}
-  texto_ganador: {fileID: 1114065306}
-  particulas: {fileID: 5408325573569084298, guid: 80699b084434f884d90e0903297afe8d, type: 3}
+  bola: {fileID: 1276197501}
+  game_manager: {fileID: 0}
+  texto_ganador: {fileID: 0}
+  desaceleracion: 5
 --- !u!61 &747880050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -928,14 +955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c9a6aa73b35d046b92253c43259161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bola: {fileID: 1276197501}
-  contador: {fileID: 2007127506}
   jugador: {fileID: 1106567358}
-  game_manager: {fileID: 717250202}
-  sprite: {fileID: 21300000, guid: 60048d67e8b4e664fbad9a6f411f6190, type: 3}
-  texto_puntaje: {fileID: 11495725}
-  texto_ganador: {fileID: 1114065306}
-  particulas: {fileID: 5408325573569084298, guid: 80699b084434f884d90e0903297afe8d, type: 3}
+  bola: {fileID: 1276197501}
+  game_manager: {fileID: 0}
+  texto_ganador: {fileID: 0}
+  desaceleracion: 5
 --- !u!61 &763025021
 BoxCollider2D:
   m_ObjectHideFlags: 0

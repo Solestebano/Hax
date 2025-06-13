@@ -19,7 +19,7 @@ public class CanchaController : MonoBehaviour{
     private Vector3 posicion_original;
     private bool ya_gano = false;
 
-    public static event Action<int> OnScore;
+    public static event Action OnAnotar;
 
     private void Start(){
         rb_bola = bola.GetComponent <Rigidbody2D>();
@@ -62,7 +62,7 @@ public class CanchaController : MonoBehaviour{
         //Al anotar
         game_manager.PararContador(true);
         rb_bola.drag = desaceleracion; //Desacelerar la bola
-        OnScore?.Invoke(1);
+        OnAnotar?.Invoke();
 
         if (game_manager.ganar == true){
             StartCoroutine(Ganar());

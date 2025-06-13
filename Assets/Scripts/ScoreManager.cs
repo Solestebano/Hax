@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,24 +11,34 @@ public class ScoreController : MonoBehaviour{
     private int puntaje_actual;
     [SerializeField] int puntaje_ganar;
 
+    public static event Action OnGanar;
+
     private void Start(){
         texto_puntaje.text = "Puntaje: " + puntaje_inicial;
 
     }
 
+    private void Update(){
+        if (puntaje_actual == puntaje_ganar){
+            OnGanar?.Invoke();
+        
+        }
+    
+    }
+
     private void OnEnable(){
-        CanchaController.OnScore += SumarPuntaje;
+        CanchaController.OnAnotar += SumarPuntaje;
 
     }
 
     private void OnDisable()
     {
-        CanchaController.OnScore -= SumarPuntaje;
+        CanchaController.OnAnotar -= SumarPuntaje;
 
     }
 
-    private void SumarPuntaje(int cantidad){
-        puntaje_actual += cantidad;
+    private void SumarPuntaje(){
+        puntaje_actual++;
         texto_puntaje.text = "Puntaje: " + puntaje_actual;
 
         /*if (puntaje_actual == puntaje_ganar && !ganar)
