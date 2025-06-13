@@ -33,13 +33,6 @@ public class ScoreManager : MonoBehaviour{
         puntaje_actual++;
         texto_puntaje.text = "Puntaje: " + puntaje_actual;
 
-        /*if (puntaje_actual == puntaje_ganar && !ganar)
-        {
-            Debug.Log("Ganaste");
-            ganar = true;
-
-        */
-
     }
 
 }

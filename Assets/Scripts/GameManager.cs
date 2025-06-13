@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour{
     [SerializeField] float desaceleracion = 5f;
     private float drag_original;
     private Vector3 posicion_original;
-    private bool ya_gano = false;
+    private bool ganar = false;
 
     #endregion
 
@@ -34,23 +34,29 @@ public class GameManager : MonoBehaviour{
         posicion_original = jugador.transform.position;
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         CanchaController.OnAnotar += Anotar;
 
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         CanchaController.OnAnotar -= Anotar;
 
     }
 
-    private void Anotar(){
-    
-    
+    private void Update(){
+        if (timer.duracion_actual == 0 && !ganar) {
+            ganar = true;
+            StartCoroutine(GanarCorutina());
+
+        }
+
     }
 
-    private void Ganar(){
-    
+    private void Anotar(){
+        StartCoroutine(AnotarCorutina());   
     
     }
 
@@ -69,17 +75,18 @@ public class GameManager : MonoBehaviour{
 
     }
     IEnumerator AnotarCorutina(){
+        yield return null;
         //Al anotar
         timer.PararContador(true);
         rb_bola.drag = desaceleracion; //Desacelerar la bola
 
-        /*
-        if (game_manager.ganar == true){
-            StartCoroutine(Ganar());
+        //Si se gana
+        if (score.puntaje_actual == puntaje_ganar){
+            ganar = true;
+            StartCoroutine(GanarCorutina());
             yield break;
 
         }
-        */
 
         yield return new WaitForSeconds(2f);
 
@@ -89,11 +96,9 @@ public class GameManager : MonoBehaviour{
 
     }
 
-    IEnumerator GanarCorutina()
-    {
+    IEnumerator GanarCorutina(){
         texto_ganador.DOFade(1f, 1f);
         yield return new WaitForSeconds(2f);
-
         ReiniciarEscena();
 
     }

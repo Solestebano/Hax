@@ -11,11 +11,10 @@ public class TimerManager : MonoBehaviour{
     [SerializeField] TMP_Text texto_contador;
     [SerializeField] float duracion_contador;
     [SerializeField] float duracion_interpolacion;
-    private float duracion_actual;
+    public float duracion_actual { get; set; }
     private bool empezo_animacion = false;
     private bool esta_pausado = false;
     private bool primer_movimiento = false;
-    public bool ganar = false;
 
     #endregion
 
@@ -25,12 +24,6 @@ public class TimerManager : MonoBehaviour{
     }
 
     private void Update(){
-        //Condicion para ganar
-        if (duracion_actual == 0 && !ganar){
-            ganar = true;
-
-        }
-
         //Contador
         if(duracion_actual < 0) {
             duracion_actual = 0;
@@ -40,7 +33,6 @@ public class TimerManager : MonoBehaviour{
         
         }
 
-        
         //Cambio de color del texto cuando queda poco tiempo
         if(duracion_actual < 30 && !empezo_animacion){
             texto_contador.DOColor(Color.red, duracion_interpolacion)
