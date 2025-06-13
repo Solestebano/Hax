@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour{
     }
 
     private void OnEnable(){
-        ScoreManager.
+        
 
     }
 

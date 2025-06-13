@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 
-public class TimerController : MonoBehaviour{
+public class TimerManager : MonoBehaviour{
 
     [SerializeField] TMP_Text texto_contador;
     [SerializeField] float duracion_contador;

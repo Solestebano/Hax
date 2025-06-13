@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreController : MonoBehaviour{
+public class ScoreManager : MonoBehaviour{
 
     [SerializeField] TextMeshProUGUI texto_puntaje;
     private int puntaje_inicial = 0;
