@@ -11,10 +11,10 @@ public class TimerManager : MonoBehaviour{
     [SerializeField] TMP_Text texto_contador;
     [SerializeField] float duracion_contador;
     [SerializeField] float duracion_interpolacion;
-    public float duracion_actual { get; set; }
+    public float duracion_actual { get; private set; }
+    public bool esta_pausado { get; private set; } = false;
+    public bool primer_movimiento { get; private set; } = false;
     private bool empezo_animacion = false;
-    private bool esta_pausado = false;
-    private bool primer_movimiento = false;
 
     #endregion
 
@@ -57,16 +57,6 @@ public class TimerManager : MonoBehaviour{
     public void PararContador(bool pausa){
         primer_movimiento = false;
         esta_pausado = pausa;
-
-    }
-
-    public bool GetPrimerMovimiento(){
-        return primer_movimiento;
-    
-    }
-
-    public bool GetPausa(){
-        return esta_pausado;
 
     }
 

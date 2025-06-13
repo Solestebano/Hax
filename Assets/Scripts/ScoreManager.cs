@@ -14,7 +14,8 @@ public class ScoreManager : MonoBehaviour{
     #endregion
 
     private void Start(){
-        texto_puntaje.text = "Puntaje: " + puntaje_inicial;
+        puntaje_actual = puntaje_inicial;
+        ActualizarTexto();
 
     }
 
@@ -31,6 +32,11 @@ public class ScoreManager : MonoBehaviour{
 
     private void SumarPuntaje(){
         puntaje_actual++;
+        ActualizarTexto();
+
+    }
+
+    private void ActualizarTexto(){
         texto_puntaje.text = "Puntaje: " + puntaje_actual;
 
     }

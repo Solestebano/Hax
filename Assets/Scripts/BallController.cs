@@ -32,7 +32,7 @@ public class BallController : MonoBehaviour{
 
     }
     private void ComprobarPrimerMovimiento(){
-        if (timer.GetPrimerMovimiento() == false && timer.GetPausa() == false){
+        if (timer.primer_movimiento == false && timer.esta_pausado == false){
             timer.EmpezarContador();
 
         }
