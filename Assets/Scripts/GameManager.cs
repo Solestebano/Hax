@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour{
     [SerializeField] GameObject bola;
     [SerializeField] TextMeshProUGUI texto_ganador;
     [SerializeField] TimerManager timer;
+    [SerializeField] ScoreManager score;
     Rigidbody2D rb_jugador;
     Rigidbody2D rb_bola;
 
+    [SerializeField] int puntaje_ganar;
     [SerializeField] float desaceleracion = 5f;
     private float drag_original;
     private Vector3 posicion_original;
@@ -34,13 +36,11 @@ public class GameManager : MonoBehaviour{
 
     private void OnEnable(){
         CanchaController.OnAnotar += Anotar;
-        ScoreManager.OnGanar += Ganar;
 
     }
 
     private void OnDisable(){
         CanchaController.OnAnotar -= Anotar;
-        ScoreManager.OnGanar -= Ganar;
 
     }
 

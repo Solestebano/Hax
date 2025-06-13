@@ -9,24 +9,13 @@ public class ScoreManager : MonoBehaviour{
 
     [SerializeField] TextMeshProUGUI texto_puntaje;
     private int puntaje_inicial = 0;
-    private int puntaje_actual;
-    [SerializeField] int puntaje_ganar;
-
-    public static event Action OnGanar;
+    public int puntaje_actual { get; private set; }
 
     #endregion
 
     private void Start(){
         texto_puntaje.text = "Puntaje: " + puntaje_inicial;
 
-    }
-
-    private void Update(){
-        if (puntaje_actual == puntaje_ganar){
-            OnGanar?.Invoke();
-        
-        }
-    
     }
 
     private void OnEnable(){
