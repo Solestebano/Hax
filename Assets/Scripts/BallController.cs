@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour{
 
-    [SerializeField] GameManager game_manager;
+    [SerializeField] TimerManager timer;
     private Rigidbody2D rb;
 
     [SerializeField] float fuerza;
     private Vector2 direccion;
     
-
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
 
@@ -33,8 +32,8 @@ public class BallController : MonoBehaviour{
 
     }
     private void ComprobarPrimerMovimiento(){
-        if (game_manager.GetPrimerMovimiento() == false && game_manager.GetPausa() == false){
-            game_manager.EmpezarContador();
+        if (timer.GetPrimerMovimiento() == false && timer.GetPausa() == false){
+            timer.EmpezarContador();
 
         }
 
