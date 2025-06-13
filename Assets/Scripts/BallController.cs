@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallController : MonoBehaviour{
-
     [SerializeField] TimerManager timer;
     private Rigidbody2D rb;
 
     [SerializeField] float fuerza;
     private Vector2 direccion;
-    
+    private const string TAG_PATADA = "Patada";
+    private const string TAG_JUGADOR = "Player";
+
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if (collision.collider.CompareTag("Patada")){
+        if (collision.collider.CompareTag(TAG_PATADA)){
             ComprobarPrimerMovimiento();
 
             direccion = (rb.position - (Vector2)collision.transform.position).normalized;
@@ -25,7 +26,7 @@ public class BallController : MonoBehaviour{
 
         }
      
-        if (collision.collider.CompareTag("Player")){
+        if (collision.collider.CompareTag(TAG_JUGADOR)){
             ComprobarPrimerMovimiento();
 
         }
