@@ -11,18 +11,30 @@ public class PlayerController : MonoBehaviour{
     [SerializeField] SpriteRenderer sr;
     [SerializeField] GameObject patada;
 
+    [SerializeField] Equipos equipo;
     [SerializeField] float velocidad; 
     [SerializeField] float salto;
 
     private Vector2 direccion_movimiento;
     private bool accion;
     private float velocidad_inicial;
+    private Color color_inicial;
 
     #endregion
 
-    private void Awake()
-    {
+    private void Awake(){
+        //Asignar color
+        if (equipo == Equipos.EquipoAzul){
+            ColorUtility.TryParseHtmlString("#9EB7FF", out color_inicial);
+
+        }else if (equipo == Equipos.EquipoRojo){
+            ColorUtility.TryParseHtmlString("#FF715B", out color_inicial);
+
+        }
+
+        sr.color = color_inicial;
         velocidad_inicial = velocidad;
+
     }
 
     private void FixedUpdate(){
@@ -36,7 +48,7 @@ public class PlayerController : MonoBehaviour{
         
         }else{
             velocidad = velocidad_inicial;
-            sr.color = Color.white;
+            sr.color = color_inicial;
             patada.SetActive(false);
 
         }

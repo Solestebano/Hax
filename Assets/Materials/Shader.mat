@@ -42,11 +42,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Tolerance: 0
+    - _Tolerance: 0.01
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColor: {r: 0.3647059, g: 0.7686275, b: 0.28235295, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColor: {r: 1, g: 0.33490568, b: 0.85186785, a: 1}
+    - _TargetColor: {r: 0.23153257, g: 0.37048355, b: 0.4056604, a: 1}
   m_BuildTextureStacks: []
