@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
+        //Añadir empate
+
         if (timer.duracion_actual == 0 && !ganar) {
             ganar = true;
             StartCoroutine(GanarCorutina());
