@@ -35,9 +35,7 @@ public class TimerManager : MonoBehaviour{
 
         //Cambio de color del texto cuando queda poco tiempo
         if(duracion_actual < 30 && !empezo_animacion){
-            texto_contador.DOColor(Color.red, duracion_interpolacion)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.Linear);
+            AnimacionInterpolacion(texto_contador, duracion_interpolacion);
 
             empezo_animacion = true;
         
@@ -57,6 +55,18 @@ public class TimerManager : MonoBehaviour{
     public void PararContador(bool pausa){
         primer_movimiento = false;
         esta_pausado = pausa;
+
+    }
+
+    public void CambiarDuracionActual(int tiempo){
+        duracion_actual = tiempo;
+    
+    }
+
+    private void AnimacionInterpolacion(TMP_Text texto, float tiempo_interpolacion){
+        texto.DOColor(Color.red, tiempo_interpolacion)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.Linear);
 
     }
 
