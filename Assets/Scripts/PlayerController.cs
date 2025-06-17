@@ -25,6 +25,16 @@ public class PlayerController : MonoBehaviour{
     #endregion
 
     private void Awake(){
+        var player_input = GetComponent<PlayerInput>();
+
+        if (player_input.defaultControlScheme == "Jugador1"){
+            player_input.SwitchCurrentControlScheme("Jugador1", Keyboard.current);
+        
+        }else if(player_input.defaultControlScheme == "Jugador2"){
+            player_input.SwitchCurrentControlScheme("Jugador2", Keyboard.current);
+
+        }
+
         //Asignar color
         if (equipo == Equipos.EquipoAzul){
             ColorUtility.TryParseHtmlString("#9EB7FF", out color_inicial);

@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Player",
+            "name": "Jugador",
             "id": "b2610609-60a6-4a36-9e67-a2c9c74eeee9",
             "actions": [
                 {
@@ -42,7 +42,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador1",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -53,7 +53,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador1",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -64,7 +64,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador1",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -75,14 +75,14 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador1",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "2D Vector",
-                    "id": "23f0d029-8cd2-4044-9232-9ca2dc3fbd83",
+                    "id": "0fb99228-b90a-4160-886b-58d7f3ef454d",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -93,44 +93,44 @@
                 },
                 {
                     "name": "up",
-                    "id": "43bce743-25ab-47bc-9e98-d95b05e30fb6",
+                    "id": "dc613e4e-5907-4066-ab86-edde22bf052c",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador2",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "a2e7181e-e524-4eb5-a41e-f4f0a75cce8e",
+                    "id": "548d1844-ea3e-41cc-b7de-8c24ac765189",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador2",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "688470e7-53d7-43bd-b9ee-f018730bc571",
+                    "id": "3a885fd6-d93d-4bc8-95c4-0d24886425fe",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador2",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "b0edcd61-8a1f-412a-8185-0b64950541aa",
+                    "id": "591105b1-b0ab-42b0-aba2-53a92745bc8e",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador2",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -141,7 +141,18 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Jugador1",
+                    "action": "Acciones",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42e34cae-4a0c-49b3-81d8-8615118ff9f2",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Jugador2",
                     "action": "Acciones",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -205,6 +216,28 @@
             "devices": [
                 {
                     "devicePath": "<XRController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Jugador1",
+            "bindingGroup": "Jugador1",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Jugador2",
+            "bindingGroup": "Jugador2",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }

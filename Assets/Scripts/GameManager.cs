@@ -8,18 +8,21 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour{
     #region Variables
 
-    [SerializeField] GameObject jugador;
+    [SerializeField] GameObject jugador1;
+    [SerializeField] GameObject jugador2;
     [SerializeField] GameObject bola;
     [SerializeField] TextMeshProUGUI texto_ganador;
     [SerializeField] TimerManager timer;
     [SerializeField] ScoreManager score;
-    Rigidbody2D rb_jugador;
+    Rigidbody2D rb_jugador1;
+    Rigidbody2D rb_jugador2;
     Rigidbody2D rb_bola;
 
     [SerializeField] int puntaje_ganar;
     [SerializeField] float desaceleracion = 5f;
     private float drag_original;
-    private Vector3 posicion_original;
+    private Vector3 j1_posicion_original;
+    private Vector3 j2_posicion_original;
     private bool ganar = false;
     private bool ya_anoto = false;
 
@@ -29,10 +32,12 @@ public class GameManager : MonoBehaviour{
         Application.targetFrameRate = 60;
 
         rb_bola = bola.GetComponent<Rigidbody2D>();
-        rb_jugador = jugador.GetComponent<Rigidbody2D>();
+        rb_jugador1 = jugador1.GetComponent<Rigidbody2D>();
+        rb_jugador2 = jugador2.GetComponent<Rigidbody2D>();
 
         drag_original = rb_bola.drag;
-        posicion_original = jugador.transform.position;
+        j1_posicion_original = jugador1.transform.position;
+        j2_posicion_original = jugador2.transform.position;
 
     }
 
@@ -71,8 +76,10 @@ public class GameManager : MonoBehaviour{
         rb_bola.drag = drag_original;
         rb_bola.velocity = Vector2.zero;
 
-        jugador.transform.position = posicion_original;
-        rb_jugador.velocity = Vector2.zero;
+        jugador1.transform.position = j1_posicion_original;
+        rb_jugador1.velocity = Vector2.zero;
+        jugador2.transform.position = j2_posicion_original;
+        rb_jugador2.velocity = Vector2.zero;
 
         ya_anoto = false;
 
