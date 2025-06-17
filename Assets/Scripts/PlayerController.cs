@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour{
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer sr;
+    [SerializeField] SpriteRenderer sr_outline;
     [SerializeField] GameObject patada;
+    [SerializeField] GameObject outline;
 
     [SerializeField] Equipos equipo;
     [SerializeField] float velocidad; 
@@ -43,11 +45,12 @@ public class PlayerController : MonoBehaviour{
 
         if (accion){
             velocidad = velocidad_inicial * 0.5f;
-            sr.color = Color.red;
+            sr_outline.color = Color.white;
             patada.SetActive(true);
         
         }else{
             velocidad = velocidad_inicial;
+            sr_outline.color = Color.black;
             sr.color = color_inicial;
             patada.SetActive(false);
 

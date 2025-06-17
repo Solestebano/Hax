@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour{
     private float drag_original;
     private Vector3 posicion_original;
     private bool ganar = false;
+    private bool ya_anoto = false;
 
     #endregion
 
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour{
 
         drag_original = rb_bola.drag;
         posicion_original = jugador.transform.position;
+
     }
 
     private void OnEnable()
@@ -48,7 +50,6 @@ public class GameManager : MonoBehaviour{
 
     private void Update(){
         //Añadir empate
-
         if (timer.duracion_actual == 0 && !ganar) {
             ganar = true;
             StartCoroutine(GanarCorutina());
@@ -58,8 +59,11 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Anotar(){
-        StartCoroutine(AnotarCorutina());   
-    
+        if (ya_anoto == false){ 
+            StartCoroutine(AnotarCorutina());
+
+        }
+
     }
 
     private void ReiniciarAtributos(){
@@ -70,6 +74,8 @@ public class GameManager : MonoBehaviour{
         jugador.transform.position = posicion_original;
         rb_jugador.velocity = Vector2.zero;
 
+        ya_anoto = false;
+
     }
 
     public void ReiniciarEscena(){
@@ -79,7 +85,9 @@ public class GameManager : MonoBehaviour{
     IEnumerator AnotarCorutina(){
         yield return null;
         //Al anotar
+        score.SumarPuntaje();
         timer.PararContador(true);
+        ya_anoto = true;
         rb_bola.drag = desaceleracion; //Desacelerar la bola
 
         //Si se gana

@@ -19,18 +19,7 @@ public class ScoreManager : MonoBehaviour{
 
     }
 
-    private void OnEnable(){
-        CanchaController.OnAnotar += SumarPuntaje;
-
-    }
-
-    private void OnDisable()
-    {
-        CanchaController.OnAnotar -= SumarPuntaje;
-
-    }
-
-    private void SumarPuntaje(){
+    public void SumarPuntaje(){
         puntaje_actual++;
         ActualizarTexto();
 
